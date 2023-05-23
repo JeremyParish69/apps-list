@@ -11,8 +11,8 @@
       "github_URL": "https://github.com/iondao",
       "featured": false,
       "internal_data": {
-        "thumbnail_size": 116680,
-        "hero_size": 0
+        "thumbnail_size": 181078,
+        "hero_size": 116680
       }
     },
     {
@@ -26,8 +26,8 @@
       "github_URL": "https://github.marsprotocol.io",
       "featured": true,
       "internal_data": {
-        "thumbnail_size": 500200,
-        "hero_size": 0
+        "thumbnail_size": 585918,
+        "hero_size": 500200
       }
     },
     {
@@ -41,8 +41,8 @@
       "github_URL": "https://github.marsprotocol.io",
       "featured": false,
       "internal_data": {
-        "thumbnail_size": 51314,
-        "hero_size": 0
+        "thumbnail_size": 61300,
+        "hero_size": 51314
       }
     },
     {
@@ -56,8 +56,8 @@
       "github_URL": "",
       "featured": false,
       "internal_data": {
-        "thumbnail_size": 27430,
-        "hero_size": 0
+        "thumbnail_size": 21062,
+        "hero_size": 27430
       }
     },
     {
@@ -71,8 +71,8 @@
       "github_URL": "https://github.com/bitsongofficial/sinfonia-ui",
       "featured": false,
       "internal_data": {
-        "thumbnail_size": 100854,
-        "hero_size": 0
+        "thumbnail_size": 46684,
+        "hero_size": 100854
       }
     },
     {
@@ -86,8 +86,8 @@
       "github_URL": "https://github.com/eco-stake/restake",
       "featured": false,
       "internal_data": {
-        "thumbnail_size": 337276,
-        "hero_size": 0
+        "thumbnail_size": 13152,
+        "hero_size": 337276
       }
     },
     {
@@ -101,8 +101,8 @@
       "github_URL": "https://github.com/icns-xyz/icns",
       "featured": false,
       "internal_data": {
-        "thumbnail_size": 22112,
-        "hero_size": 0
+        "thumbnail_size": 27200,
+        "hero_size": 22112
       }
     },
     {
@@ -116,8 +116,8 @@
       "github_URL": "https://github.com/tfm-com",
       "featured": false,
       "internal_data": {
-        "thumbnail_size": 57120,
-        "hero_size": 0
+        "thumbnail_size": 4084,
+        "hero_size": 57120
       }
     },
     {
@@ -131,8 +131,8 @@
       "github_URL": "https://github.com/calculated-finance",
       "featured": false,
       "internal_data": {
-        "thumbnail_size": 80820,
-        "hero_size": 0
+        "thumbnail_size": 62478,
+        "hero_size": 80820
       }
     },
     {
@@ -146,8 +146,8 @@
       "github_URL": "https://github.com/yieldmos/",
       "featured": false,
       "internal_data": {
-        "thumbnail_size": 35874,
-        "hero_size": 0
+        "thumbnail_size": 14986,
+        "hero_size": 35874
       }
     },
     {
@@ -161,8 +161,8 @@
       "github_URL": "https://github.com/many-things/ibcx-contracts",
       "featured": false,
       "internal_data": {
-        "thumbnail_size": 67146,
-        "hero_size": 0
+        "thumbnail_size": 44742,
+        "hero_size": 67146
       }
     }
   ]
