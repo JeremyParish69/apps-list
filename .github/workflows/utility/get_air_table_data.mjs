@@ -10,7 +10,7 @@ const outputFileName = "applications.json";
 const outputFilePath = `${outputDirectory}/${outputFileName}`;
 const imagesDirectory = './images';
 
-const air_table_url = 'https://api.airtable.com/v0/appWoI7NdLmgK8Vyx/App%20Store?maxRecords=3&view=Grid%20view';
+const air_table_url = 'https://api.airtable.com/v0/appWoI7NdLmgK8Vyx/App%20Store?view=Grid%20view';
 const air_table_token = process.env.AIRTABLE_TOKEN;
 const air_table_header = {
     headers: {
