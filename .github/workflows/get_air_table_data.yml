@@ -22,7 +22,6 @@ jobs:
           node-version: 19.6.0
           
       - name: Run code to get AirTable Data
-        working-directory: ./.github/workflows/utility
         env:
           AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
         run: node get_air_table_data.mjs
