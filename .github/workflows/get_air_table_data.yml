@@ -21,6 +21,9 @@ jobs:
         with:
           node-version: 19.6.0
           
+      - name: Install dependencies
+        run: npm install
+          
       - name: Run code to get AirTable Data
         env:
           AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
