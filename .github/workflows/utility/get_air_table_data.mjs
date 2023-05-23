@@ -20,6 +20,7 @@ const air_table_header = {
 
 let air_table_data;
 let git_hub_data = [];
+let applications;
 let project_template = {
     title: "",
     subtitle: "",
@@ -144,11 +145,14 @@ function process_air_table_data() {
         //console.log(project);
 
         git_hub_data.push(project);
+        applications = {
+            applications: git_hub_data
+        }
 
 
     });
 
-    writeArrayToJsonFile(git_hub_data, outputFilePath);
+    writeArrayToJsonFile(applications, outputFilePath);
 
 }
 
