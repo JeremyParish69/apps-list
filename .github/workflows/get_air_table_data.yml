@@ -24,7 +24,7 @@ jobs:
       - name: Run code to get AirTable Data
         env:
           AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
-        run: node get_air_table_data.mjs
+        run: node .github/workflows/utility/get_air_table_data.mjs
       
       - name: Add Commit Push
         uses: devops-infra/action-commit-push@master
