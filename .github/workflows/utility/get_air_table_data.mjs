@@ -20,6 +20,7 @@ const air_table_header = {
 
 let air_table_data;
 let git_hub_data = [];
+let git_hub_data_map;
 let applications;
 let project_template = {
     title: "",
@@ -70,25 +71,47 @@ async function get_image(url, name) {
 
 }
 
-function writeArrayToJsonFile(array, filePath) {
-  const jsonData = JSON.stringify(array, null, 2);
+function readJsonFile(file) {
+  try {
+    return JSON.parse(fs.readFileSync(file));
+  } catch (err) {
+    console.log(err);
+  }
+}
 
-  fs.writeFile(filePath, jsonData, 'utf8', (err) => {
-    if (err) {
-      console.error('Error writing JSON file:', err);
-      return;
-    }
-    console.log('Array successfully written to JSON file:', filePath);
-  });
+function writeJsonFile(file, object) {
+  try {
+    fs.writeFileSync((file), JSON.stringify(object,null,2), (err) => {
+      if (err) throw err;
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+function process_git_hub_data() {
+    
+    console.log("Processing GitHub Data");
+    //console.log(git_hub_data);
+
+    git_hub_data_map = new Map();
+    git_hub_data.applications.forEach((project) => {
+        if (project.title) {
+            git_hub_data_map.set(project.title, project);
+        }
+    });
+
+
 }
 
 function process_air_table_data() {
 
-    console.log("Processing Data");
+    console.log("Processing AirTable Data");
+    git_hub_data = [];
 
     if(!air_table_data) {console.log("No data");}
     air_table_data.records.forEach((record) => {
-    
+
         if(!record.fields["Has requirements?"] || !record.fields.Publish) {return}
 
 
@@ -124,7 +147,7 @@ function process_air_table_data() {
 
 
         // -- GET THUMBNAIL IMAGE --
-        if (record.fields.Thumbnail[0].size != project.internal_data.thumbnail_size) {
+        if (record.fields.Thumbnail[0].size != git_hub_data_map.get(project.title).internal_data.thumbnail_size) {
             let image_name = project.title.toLowerCase().replace(/\s/g, '_') + "_thumbnail.webp";
             get_image(record.fields.Thumbnail[0].url,image_name);
             project.internal_data.thumbnail_size = record.fields.Thumbnail[0].size;
@@ -135,32 +158,37 @@ function process_air_table_data() {
         // -- GET HERO IMAGE --
         if (record.fields["Hero Image?"]) {
             let hero_image_column = record.fields["Hero Image Column"];
-            if (record.fields[hero_image_column][0].size != project.internal_data.hero_size) {
+            if (record.fields[hero_image_column][0].size != git_hub_data_map.get(project.title).internal_data.hero_size) {
                 let image_name = project.title.toLowerCase().replace(/\s/g, '_') + "_hero.webp";
                 get_image(record.fields[hero_image_column][0].url,image_name);
-                project.internal_data.thumbnail_size = record.fields[hero_image_column][0].size;
+                project.internal_data.hero_size = record.fields[hero_image_column][0].size;
             }
         }
 
         //console.log(project);
 
         git_hub_data.push(project);
-        applications = {
-            applications: git_hub_data
-        }
+        
 
 
     });
 
-    writeArrayToJsonFile(applications, outputFilePath);
+    applications = {
+        applications: git_hub_data
+    };
 
 }
 
 async function main() {
     
+    git_hub_data = readJsonFile(outputFilePath);
+    process_git_hub_data();
     air_table_data = await fetch_data(air_table_url, air_table_header);
     process_air_table_data();
+    writeJsonFile(outputFilePath, applications);
 
 }
+
+main();
 
 main();
