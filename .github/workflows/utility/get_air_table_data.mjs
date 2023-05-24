@@ -146,8 +146,24 @@ function process_air_table_data() {
 
 
 
+        // -- GET IMAGE SIZES --
+        let thumbnail_size = 0;
+        let hero_size = 0;
+        if (git_hub_data_map.get(project.title)) {
+            if (git_hub_data_map.get(project.title).internal_data) {
+                if (git_hub_data_map.get(project.title).internal_data.thumbnail_size) {
+                    thumbnail_size = git_hub_data_map.get(project.title).internal_data.thumbnail_size;
+                }
+                if (git_hub_data_map.get(project.title).internal_data.hero_size) {
+                    thumbnail_size = git_hub_data_map.get(project.title).internal_data.hero_size;
+                }
+            }
+        }
+
+
+
         // -- GET THUMBNAIL IMAGE --
-        if (record.fields.Thumbnail[0].size != git_hub_data_map.get(project.title).internal_data.thumbnail_size) {
+        if (record.fields.Thumbnail[0].size != thumbnail_size) {
             let image_name = project.title.toLowerCase().replace(/\s/g, '_') + "_thumbnail.webp";
             get_image(record.fields.Thumbnail[0].url,image_name);
             project.internal_data.thumbnail_size = record.fields.Thumbnail[0].size;
@@ -158,7 +174,7 @@ function process_air_table_data() {
         // -- GET HERO IMAGE --
         if (record.fields["Hero Image?"]) {
             let hero_image_column = record.fields["Hero Image Column"];
-            if (record.fields[hero_image_column][0].size != git_hub_data_map.get(project.title).internal_data.hero_size) {
+            if (record.fields[hero_image_column][0].size != hero_size) {
                 let image_name = project.title.toLowerCase().replace(/\s/g, '_') + "_hero.webp";
                 get_image(record.fields[hero_image_column][0].url,image_name);
                 project.internal_data.hero_size = record.fields[hero_image_column][0].size;
