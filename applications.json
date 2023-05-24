@@ -164,6 +164,21 @@
         "thumbnail_size": 44742,
         "hero_size": 67146
       }
+    },
+    {
+      "title": "Apollo Safe",
+      "subtitle": "Multi-Sig Manager for Cosmos",
+      "external_URL": "https://safe.apollo.farm/osmosis-1/overview",
+      "thumbnail_image_URL": "https://raw.githubusercontent.com/osmosis-labs/apps-list/main/images/apollo_safe_thumbnail.wepb",
+      "hero_image_URL": "https://raw.githubusercontent.com/osmosis-labs/apps-list/main/images/apollo_safe_hero.wepb",
+      "twitter_URL": "https://twitter.com/apollodao",
+      "medium_URL": "",
+      "github_URL": "https://github.com/CosmWasm/cw-plus/blob/main/packages/cw3/README.md",
+      "featured": false,
+      "internal_data": {
+        "thumbnail_size": 134210,
+        "hero_size": 40306
+      }
     }
   ]
 }
